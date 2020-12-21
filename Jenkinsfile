@@ -14,4 +14,5 @@ pipeline {
                 sh  'k6 version'
             }
         }
+    }
 }
