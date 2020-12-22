@@ -15,4 +15,11 @@ pipeline {
             }
         }
     }
+    stages{
+        stage('Running K6 Scripts'){
+            steps{
+                sh 'sh ./Scripts/run.sh'
+            }
+        }
+    }
 }
