@@ -44,11 +44,6 @@ export default function(){
   let res =http.get(TEST_URl,params);
   //let res=http.post(TEST_URl,body_param,params);
   let success = check(res, {"200": (r) => r.status === 200});
-  // console.log(res.json('data.accessToken')+",");
-  // if (!success) {
-  //   errorRate.add(1);
-  //   console.log(res.status);
-  // }
   check(res, {
       "400": (r) => r.status == 400,
       "401": (r) => r.status == 401,
