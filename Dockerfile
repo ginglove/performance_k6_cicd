@@ -18,18 +18,8 @@ RUN yum install -y \
         wget \
         telnet \
         gcc \
-        emacs-nox && \
-    yum install -y \
-        epel-release
-RUN yum groupinstall -y "Development Tools" && \
-    yum install -y \
-        cairo-devel \
-        libffi-devel \
-        libxml2-devel \
-        libxslt-devel \
-        automake \
-        autoconf  \
-        openssl-devel
+        emacs-nox
+RUN yum groupinstall -y "Development Tools" 
 RUN yum clean -y all
 RUN wget https://bintray.com/loadimpact/rpm/rpm -O bintray-loadimpact-rpm.repo
 RUN mv bintray-loadimpact-rpm.repo /etc/yum.repos.d/

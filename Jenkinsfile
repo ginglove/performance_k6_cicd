@@ -3,7 +3,7 @@ pipeline {
 //execution and that each stage directive must specify its own agent section.
     agent {docker 
            {
-               image 'ginglove/docker_k6:0.1'
+               image 'ginglove/docker_k6:0.2'
                args '-u root --privileged'
            }
           }
@@ -24,7 +24,7 @@ pipeline {
         }
         stage('Running K6 Scripts'){
             steps{
-                sh 'sh ./Scripts/run.sh     TIME_1  USER_1  TIME_2  USER_2  TIME_3  USER_3'
+                sh 'sh ./Scripts/run.sh     ${TIME_1}  ${USER_1}  ${TIME_2}  ${USER_2}  ${TIME_3}  ${USER_3}'
             }
         }
     }
