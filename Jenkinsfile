@@ -7,6 +7,14 @@ pipeline {
                args '-u root --privileged'
            }
           }
+  parameters {
+    string(name: 'TIME_1', defaultValue: '', description: 'Config time for K6 Stage 1 , must input with time format ==>1s,1m,1h')
+    string(name: 'USER_1', defaultValue: '', description: 'Config User for K6 Stage 1')
+    string(name: 'TIME_2', defaultValue: '', description: 'Config time for K6 Stage 2 , must input with time format ==>1s,1m,1h')
+    string(name: 'USER_2', defaultValue: '', description: 'Config User for K6 Stage 2')
+    string(name: 'TIME_3', defaultValue: '', description: 'Config time for K6 Stage 3 , must input with time format ==>1s,1m,1h')
+    string(name: 'USER_3', defaultValue: '', description: 'Config User for K6 Stage 3')
+  }
     stages {
         stage('Check Dependencies Requirement') {
             steps {
@@ -16,7 +24,7 @@ pipeline {
         }
         stage('Running K6 Scripts'){
             steps{
-                sh 'sh ./Scripts/run.sh'
+                sh 'sh ./Scripts/run.sh     TIME_1  USER_1  TIME_2  USER_2  TIME_3  USER_3'
             }
         }
     }
